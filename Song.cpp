@@ -13,22 +13,42 @@ using namespace std;
 
 //default constructor
 Song::Song(){
+    songTitle = new char[strlen("no Title")+1];
     strcpy(songTitle, "no Title");
+    artistName = new char[strlen("no Artist")+1];
     strcpy(artistName, "no Artist");
     songMins = 0;
     songSecs = 0;
+    albumTitle = new char[strlen("no Album")+1];
     strcpy(albumTitle, "no Album");
     index = 0;
 }
 
 //constructor
 Song::Song(char songTitle[], char artistName[], int songMins, int songSecs, char albumTitle[], int index){
+    this->songTitle = new char[strlen(songTitle)+1];
     strcpy(this->songTitle, songTitle);
+    this->artistName = new char[strlen(artistName)+1];
     strcpy(this->artistName, artistName);
     this->songMins = songMins;
     this->songSecs = songSecs;
+    this->albumTitle = new char[strlen(albumTitle)+1];
     strcpy(this->albumTitle, albumTitle);
     this->index = index;
+}
+
+//destructor
+Song::~Song(){
+    if(songTitle != NULL){
+        delete [] songTitle;
+    }
+    if(artistName != NULL){
+        delete [] artistName;
+    }
+    if(albumTitle != NULL){
+        delete [] albumTitle;
+    }
+
 }
 
 //following functions will sets the internal value to the parameter
@@ -63,10 +83,18 @@ void Song::printSong() const{
 
 //following functions set the song values
 void Song::setSongTitle(const char songTitle[]){
+    if(this->songTitle != NULL){
+        delete [] this->songTitle;
+    }
+    this->songTitle = new char[strlen(songTitle)+1];
     strcpy(this->songTitle, songTitle);
 }
 
 void Song::setArtistName(const char artistName[]){
+    if(this->artistName != NULL){
+        delete [] this->artistName;
+    }
+    this->artistName = new char[strlen(artistName)+1];
     strcpy(this->artistName, artistName);
 }
 
@@ -79,6 +107,10 @@ void Song::setSongSecs(const int songSecs){
 }
 
 void Song::setAlbumTitle(const char albumTitle[]){
+    if(this->albumTitle != NULL){
+        delete [] this->albumTitle;
+    }
+    this->albumTitle = new char[strlen(albumTitle)+1];
     strcpy(this->albumTitle, albumTitle);
 }
 

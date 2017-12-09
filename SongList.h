@@ -14,8 +14,10 @@ const int maxList = 100;
 //songlist Model
 class SongList {
 public:
-    SongList(int& listSize);
-    SongList(const char fileName[]);
+    SongList();
+    SongList(int initMax, const char fileName[]);
+    
+    ~SongList();
     
     void readLibrary(const char fileName[]);
     void saveLibrary(const char fileName[]) const;
@@ -28,9 +30,9 @@ public:
     
 private:
     Song * listOfSongs;
-//    Song listOfSongs[maxList];
     int    songListSize;
     int    max;
+    
     void   resize();
 };
 

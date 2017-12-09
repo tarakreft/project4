@@ -78,7 +78,7 @@ int main()
 {
     int      programChoice;
     char     fileName[] = "songs.txt";
-    SongList library(fileName);
+    SongList library(10, fileName);
     
     cout << "Welcome to the music library interface!" << endl;
     
