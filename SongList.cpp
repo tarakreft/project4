@@ -98,7 +98,6 @@ void SongList::readLibrary(const char fileName[]){
         listOfSongs[songListSize].setSongSecs(songSecs);
         listOfSongs[songListSize].setAlbumTitle(albumTitle);
         listOfSongs[songListSize].setIndex(index);
-        addedSong.printSong();
         
         songListSize++;
         
@@ -294,6 +293,11 @@ void SongList::removeSong(){
    cin.ignore(maxChar, '\n');
 
    for(int i = 0; i < songListSize; i++){
+       
+       if(songListSize == max){
+           resize();
+       }
+       
        if(indexFound == true){
         
 
@@ -339,7 +343,7 @@ void SongList::removeSong(){
 
       songListSize--;
    
-   cout << "the song with index " << removeableIndex << " has been removed. The changes will be reflected on exit from the song Library." << endl;
+   cout << "the song with index " << removeableIndex << " has been removed." << endl;
    
 }
 
@@ -363,8 +367,6 @@ void SongList::searchForArtist() const {
     
     for(int i=0; i < songListSize; i++){
         listOfSongs[i].getArtistName(artistName);
-        cout << "artistName" << artistName << endl;
-        cout << "searchTerm" << searchTerm << endl;
         if(strcmp(artistName, searchTerm) == 0){
             matches++;
             listOfSongs[i].printSong();

@@ -13,7 +13,7 @@
 
 using namespace std;
 
-void runUserChoice(int programChoice, char fileName[], SongList library);
+void runUserChoice(int programChoice, char fileName[], SongList& library);
 int displayChoices();
 
 int displayChoices(){
@@ -33,7 +33,7 @@ int displayChoices(){
     return usersChoice;
 }
 
-void runUserChoice(int programChoice, char fileName[], SongList library){
+void runUserChoice(int programChoice, char fileName[], SongList& library){
     
     Song     addedSong;
     char     songTitle[maxChar];
