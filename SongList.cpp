@@ -84,7 +84,7 @@ void SongList::readLibrary(const char fileName[]){
         addedSong.setSongSecs(songSecs);
         addedSong.setAlbumTitle(albumTitle);
         addedSong.setIndex(index);
-        
+      
         addedSong.getSongTitle(songTitle);
         addedSong.getArtistName(artistName);
         addedSong.getSongMins(songMins);
@@ -98,6 +98,7 @@ void SongList::readLibrary(const char fileName[]){
         listOfSongs[songListSize].setSongSecs(songSecs);
         listOfSongs[songListSize].setAlbumTitle(albumTitle);
         listOfSongs[songListSize].setIndex(index);
+        addedSong.printSong();
         
         songListSize++;
         
@@ -167,12 +168,12 @@ void SongList::resize(){
         listOfSongs[i].getAlbumTitle(albumTitle);
         listOfSongs[i].getIndex(index);
         
-        listOfSongs[i].setSongTitle(songTitle);
-        listOfSongs[i].setArtistName(artistName);
-        listOfSongs[i].setSongMins(songMins);
-        listOfSongs[i].setSongSecs(songSecs);
-        listOfSongs[i].setAlbumTitle(albumTitle);
-        listOfSongs[i].setIndex(index);
+        tempSongList[i].setSongTitle(songTitle);
+        tempSongList[i].setArtistName(artistName);
+        tempSongList[i].setSongMins(songMins);
+        tempSongList[i].setSongSecs(songSecs);
+        tempSongList[i].setAlbumTitle(albumTitle);
+        tempSongList[i].setIndex(index);
     }
     
     delete [] listOfSongs;
