@@ -15,6 +15,8 @@ public:
     Song();
     Song(char songTitle[], char artistName[], int songMins, int songSecs, char albumTitle[], int index);
     
+    ~Song();
+    
     void getSongTitle(char songTitle[]) const;
     void getArtistName(char artistName[]) const;
     void getSongMins(int& songMins) const;
@@ -31,12 +33,12 @@ public:
     void setIndex(const int index);
     
 private:
-    char   songTitle[maxChar];
-    char   artistName[maxChar];
-    int    songMins;
-    int    songSecs;
-    char   albumTitle[maxChar];
-    int    index;
+    char *  songTitle;
+    char *  artistName;
+    int     songMins;
+    int     songSecs;
+    char *  albumTitle;
+    int     index;
 };
 
 #endif /* Song_h */

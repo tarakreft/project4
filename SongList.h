@@ -27,8 +27,11 @@ public:
     void displaySongs() const;
     
 private:
-    Song listOfSongs[maxList];
-    int  songListSize;
+    Song * listOfSongs;
+//    Song listOfSongs[maxList];
+    int    songListSize;
+    int    max;
+    void   resize();
 };
 
 #endif /* SongList_h */
